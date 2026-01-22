@@ -22,3 +22,14 @@ Foundry emphasizes dataset lineage, governed modeling (Ontology), incremental re
 
 ## The Dataflow Graph (in Foundry)
 In Foundry, the DAG is explicit in Data Lineage: transforms (nodes) consume input datasets and produce output datasets; lineage updates as you build. You can explore ancestor/descendant relationships, see schemas and last build times, and color or snapshot parts of the graph for collaboration.
+
+## Key Concepts (SDP → Foundry)
+	-Transforms (Foundry) = flows (SDP): a unit of compute that reads Inputs and writes Outputs, defined with @transform / @transform_df. Use multiple outputs when needed.
+	-Datasets (Foundry) = persisted outputs. Use Views when you want a union or primary‑key dedup at read time without writing new files.
+	-Pipelines (Foundry) = orchestration + schedules, with native lineage and governance.
+	-Incremental: add @incremental() when inputs and logic meet constraints so only new data is processed.
+
+Pipeline Project (Foundry)
+	-Author Python transforms in a Code Repository.
+	-Declare Inputs/Outputs in decorators; write a DataFrame to each Output.
+	-Register transforms in a Pipeline, set schedules, and monitor Lineage.
