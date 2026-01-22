@@ -87,11 +87,11 @@ Spark SQL sees major usability and performance upgrades.
 
 ### Highlights:
 
-#### SQL Scripting GA (enabled by default)
+#### SQL Scripting(enabled by default)
 - Cleaner variable declarations
 - Improved error handling
 
-#### VARIANT data type GA
+#### VARIANT data type
 - Efficient shredding
 - Faster reads for semi-structured data (JSON-like)
 
