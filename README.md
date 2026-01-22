@@ -1,11 +1,10 @@
-# Rocket Ship
+# rocket-ship  
 
-This project is focused on building a rocket ship.
+<html> 
+	<img src="./images/rocket-ship-03.png" width="95%" align="center" alt="A ship that runs on rockets, because engineering, Image © Shaurya Agarwal, 2026" />  
+</html>
 
-## Features
-- High speed
-- Advanced navigation
-- Safety protocols
 
-## Installation
-Clone this repository and run the project using your preferred programming environment.
+Long-form posts on data engineering and technology in collaboration with my team  
+
+* [Slow Changing Dimensions - A Palantir Foundry Perspective](https://github.com/shauryashaurya/rocket-ship/blob/main/Slow-Changing-Dimensions-in-Data-Modelling.md) - [Prashant Jha](https://github[...]
