@@ -7,6 +7,8 @@
 
 ## Overview
 Data engineering is moving from imperative, job‑centric orchestration to dataset‑centric systems. SDP formalizes this in core Spark: you specify what datasets should exist and how they’re derived; Spark plans the graph, retries, and incremental updates for you. Foundry embodies the same philosophy: you declare Transforms that read inputs and write outputs (datasets); Pipelines schedule execution; and Lineage tracks the DAG across your enterprise.
+## TL;DR
+Spark 4.1’s Spark Declarative Pipelines (SDP) popularize a dataset‑centric approach, declare the datasets and queries; let the engine plan and run the graph. In Palantir Foundry, you build the same kind of pipelines using Transforms (@transform, @transform_df, @incremental) that materialize datasets and are orchestrated by Pipelines with scheduling, lineage, and governance built‑in. 
 
 ## What SDP Is (and how it maps)
 - SDP introduces flows, datasets (streaming tables, materialized views, temporary views), and a pipeline spec to run.
@@ -46,7 +48,6 @@ In essence, these examples walk through the end-to-end process of transforming r
 ### Curated Materialized Views (Batch)
 #### This example demonstrates creating stable, curated reference datasets for policies and treaties.
 ```python
-# repo: reinsurance/transforms/reference.py
 from transforms.api import transformdf, Input, Output
 
 @transformdf(
@@ -69,7 +70,6 @@ def treatiesmv(treatiesraw):
 ### Claims Enrichment (Parse + Join with Policy Context)
 #### This example parses raw claims and enriches them with policy reference data.
 ```python
-# repo: reinsurance/transforms/claimsenrichment.py
 from transforms.api import transformdf, Input, Output
 from pyspark.sql.functions import col, to_date, from_json
 from pyspark.sql.types import StructType, StructField, StringType, DoubleType
@@ -111,7 +111,6 @@ def claimsenrichedds(rawclaims, policiesmv):
 ### Exposure Schedules (Batch Reads)
 #### This example materializes exposure schedules from CSV inputs.
 ```python
-# repo: reinsurance/transforms/exposure.py
 from transforms.api import transformdf, Input, Output
 
 @transformdf(
@@ -127,7 +126,6 @@ def exposureschedules(exposures):
 ### Map Claims → Treaties → Compute Daily Treaty Loss
 #### This example attaches treaties to claims and computes daily treaty losses.
 ```python
-# repo: reinsurance/transforms/treatyanalytics.py
 from transforms.api import transformdf, Input, Output
 from pyspark.sql.functions import col, sum as ssum, coalesce, lit
 
@@ -164,7 +162,6 @@ def dailytreatylossesmv(claimswithtreaties):
 ### Multiple Cedant Streams → Single Consolidated Target
 #### This example consolidates multiple cedant claim streams into one curated dataset.
 ```python
-# repo: reinsurance/transforms/consolidateclaims.py
 from transforms.api import transformdf, Input, Output
 
 @transformdf(
@@ -181,7 +178,6 @@ def claimsconsolidated(cedanta, cedantb):
 ### Incremental Processing
 #### This example demonstrates incremental transforms to process only new data each run.
 ```python
-# repo: reinsurance/transforms/incrementalclaims.py
 from transforms.api import transform, incremental, Input, Output
 from pyspark.sql.functions import to_date, col
 
@@ -198,15 +194,11 @@ def claimsenrichedincremental(raw, enrichedout):
         col("lossamount").alias("grossloss"),
         "region", "lob"
     )
+
     enrichedout.write_dataframe(cleaned)
 
 ```
 
-## TL;DR
-Spark 4.1’s Spark Declarative Pipelines (SDP) popularize a dataset‑centric approach, declare the datasets and queries; let the engine plan and run the graph. In Palantir Foundry, you build the same kind of pipelines using Transforms (@transform, @transform_df, @incremental) that materialize datasets and are orchestrated by Pipelines with scheduling, lineage, and governance built‑in. 
-        to_date(col("eventts")).alias("lossdate"),
-        col("lossamount").alias("grossloss"),
-        "region", "lob"
-    )
-    enrichedout.write_dataframe(cleaned)
+
+      
 
