@@ -40,15 +40,15 @@ Enables near-instant data processing for use cases like fraud detection, monitor
 Significant performance and observability improvements for Python workloads.
 
 ### Enhancements include:
-### - Arrow-native UDF & UDTF decorators
+#### Arrow-native UDF & UDTF decorators
 - Executes directly on PyArrow
 - Avoids Pandas conversion overhead
 
-### - Python Data Source filter pushdown
+#### Python Data Source filter pushdown
 - Reduces data movement
 - Improves query efficiency
 
-### - Python worker logging
+#### Python worker logging
 - Captures logs from UDF execution
 - Exposed via a built-in table-valued function
 
