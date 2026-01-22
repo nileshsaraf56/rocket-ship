@@ -14,7 +14,7 @@ Data engineering is moving from imperative, job‑centric orchestration to datas
 ## What SDP Is (and how it maps)
 - SDP introduces flows, datasets (streaming tables, materialized views, temporary views), and a pipeline spec to run.
 - Foundry maps naturally:
-- SDP flow → Foundry Transform reading Inputs and writing one or more Outputs.
+    - SDP flow → Foundry Transform reading Inputs and writing one or more Outputs.
 	- SDP materialized view → Persisted transform output dataset (the canonical way to “materialize” in Foundry).
 	- SDP temporary view → Intermediate dataset (or a Foundry View if you want read‑time union/dedup without storing new files).
 	- SDP graph execution → Foundry Pipelines + schedules + Lineage to monitor dependencies and impact.
@@ -27,12 +27,12 @@ Foundry emphasizes dataset lineage, governed modeling (Ontology), incremental re
 In Foundry, the DAG is explicit in Data Lineage: transforms (nodes) consume input datasets and produce output datasets; lineage updates as you build. You can explore ancestor/descendant relationships, see schemas and last build times, and color or snapshot parts of the graph for collaboration.
 
 ## Key Concepts (SDP → Foundry)
-	-Transforms (Foundry) = flows (SDP): a unit of compute that reads Inputs and writes Outputs, defined with @transform / @transform_df. Use multiple outputs when needed.
-	-Datasets (Foundry) = persisted outputs. Use Views when you want a union or primary‑key dedup at read time without writing new files.
-	-Pipelines (Foundry) = orchestration + schedules, with native lineage and governance.
-	-Incremental: add @incremental() when inputs and logic meet constraints so only new data is processed.
+	- Transforms (Foundry) = flows (SDP): a unit of compute that reads Inputs and writes Outputs, defined with @transform / @transform_df. Use multiple outputs when needed.
+	- Datasets (Foundry) = persisted outputs. Use Views when you want a union or primary‑key dedup at read time without writing new files.
+	- Pipelines (Foundry) = orchestration + schedules, with native lineage and governance.
+	- Incremental: add @incremental() when inputs and logic meet constraints so only new data is processed.
 
 ## Pipeline Project (Foundry)
-	-Author Python transforms in a Code Repository.
-	-Declare Inputs/Outputs in decorators; write a DataFrame to each Output.
-	-Register transforms in a Pipeline, set schedules, and monitor Lineage.
+	- Author Python transforms in a Code Repository.
+	- Declare Inputs/Outputs in decorators; write a DataFrame to each Output.
+	- Register transforms in a Pipeline, set schedules, and monitor Lineage.
