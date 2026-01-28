@@ -9,11 +9,7 @@ title: "Slow Changing Dimensions - A Palantir Foundry Perspective"
 # Slow Changing Dimensions <br/> A **Palantir Foundry** Perspective
           
 ## Collab     
-1. [Prashant Jha](https://github.com/PrashantJha29), [LinkedIn](https://www.linkedin.com/in/prashantjha29/)    
-2. [Anudeep Chatradi](https://github.com/anudeepchatradi), [LinkedIn](https://www.linkedin.com/in/anudeep-chatradi-78757298/)
-3. [Yogesh Raja](https://github.com/yogesh01712), [LinkedIn](https://www.linkedin.com/in/yogesh1712/)
-4. [Abhishek Narayan Chaudhury](https://github.com/achaudhury7378), [LinkedIn](https://www.linkedin.com/in/abhishek-chaudhury-07422b191/)
-5. [Shaurya Agarwal](https://www.linkedin.com/in/shauryashaurya/)
+1. [Prashant Jha](https://github.com/PrashantJha29), [LinkedIn](https://www.linkedin.com/in/prashantjha29/)        
     
      
 #### Housekeeping stuff
@@ -825,7 +821,9 @@ High-level Foundry advantages across all SCD types:
 - Unified model for storage, compute, lineage, and permissions; fewer moving parts than combining multiple cloud services.
 - Native dataset versioning enables safe experimentation with SCD logic and straightforward rollback.
 - Automatic dependency tracking and recomputation reduce pipeline orchestration overhead compared to stitching together schedulers and engines in other platforms.
-
+- Incremental processing primitives optimize recomputation of SCD tables by updating only affected partitions or records.
+- Integrated data quality checks and expectations help detect anomalies in historical changes early, reducing risk of silent SCD corruption.
+- Consistent semantics across batch and incremental pipelines simplify implementing and maintaining different SCD types (Type 1, 2, 3, etc.) within a single platform
 
 ## Appendix — Practical Additions
 
@@ -922,7 +920,3 @@ SELECT * FROM dim WHERE effective_end IS NOT NULL AND effective_end < effective_
 - Merge conflicts during backfill: use versioned dataset semantics and test carefully in a sandbox.
 
 ---
-    
-- Incremental processing primitives optimize recomputation of SCD tables by updating only affected partitions or records.
-- Integrated data quality checks and expectations help detect anomalies in historical changes early, reducing risk of silent SCD corruption.
-- Consistent semantics across batch and incremental pipelines simplify implementing and maintaining different SCD types (Type 1, 2, 3, etc.) within a single platform
