@@ -90,7 +90,7 @@ Experimentation
 
 - Metric Comparison: Modeling Objectives allow side-by-side evaluation of model submissions using standardized metrics.
 
-- Reproducibility: Every experiment can be reproduced exactly due to immutable data and transformation lineage.
+- Reproducibility: Every experiment can be reproduced exactly due to immutable data and transformation lineage. 
 
 
 Model Registry
