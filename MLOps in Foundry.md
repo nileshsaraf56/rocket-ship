@@ -322,7 +322,7 @@ otherwise it can also be published as a function in ontology manager ![Model in 
 or imported in typescript repository ![Palantir TS repository](https://github.com/achaudhury7378/rocket-ship/blob/patch-2/images/Screenshot%202026-02-04%20001939.png)
 ## Comparison with Other MLOps Tools
 The table below compares Palantir Foundry with common MLOps tools, including MLflow, across core lifecycle capabilities.
-![Comparison Chart](https://github.com/anudeepchatradi/rocket-ship/blob/main/images/Screenshot_2026-02-04-21-33-12-75_40deb401b9ffe8e1df2f1cc5ba480b12.jpg)
+![Comparison Chart](https://github.com/anudeepchatradi/rocket-ship/blob/main/images/comparison_chart.jpg)
 
 Key Insight:
 
