@@ -1,10 +1,9 @@
 ---
-layout: default
-title: "Accelerating GenAI Development with Palantir Foundry"
+# Accelerating GenAI Development with Palantir Foundry
 ---
 
 
-## TL;DR
+## Introduction
 
 Palantir Foundry often outpaces a DIY, primitive-based cloud stack (AWS/Azure/GCP + assorted services) when delivering GenAI in enterprise environments. While cloud providers offer powerful building blocks, Foundry’s Ontology gives models immediate business context, AIP Logic streamlines the development loop, and its unified security model reduces Time-to-Market, turning prototypes into production-grade applications in weeks instead of months in many real-world scenarios.
 
@@ -112,7 +111,7 @@ Foundry’s **AIP Evals** builds evaluation into the platform:
 Azure and AWS allow you to assemble similar evaluation pipelines, but doing so generally requires combining multiple tools and building custom evaluation frameworks. In Foundry, this capability is available as part of the core development lifecycle.
 
 
-### Governance & Security: Production by Default
+## Governance & Security: Production by Default
 Cloud IAM models (Azure AD, AWS IAM) are comprehensive but fragmented when applied across a multi-service GenAI architecture. You typically manage: 
 
 - Permissions on your data lake/warehouse 
